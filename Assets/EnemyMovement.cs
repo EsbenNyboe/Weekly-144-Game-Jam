@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     public float hitThreshold = 1;
     public float detectPlayerThreshold = 30;
 
-
+    bool patrolling;
     private void Start()
     {
         TryGetComponent(out navAgent);
@@ -28,13 +28,19 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.position) < detectPlayerThreshold)
         {
             navAgent.SetDestination(Player.position);
+            patrolling = false;
+
         }
         else if (Vector3.Distance(transform.position,Player.position) < hitThreshold)
         {
             //attack 
-        } else
+            patrolling = false;
+
+        }
+        else
         {
             Patrol();
+            patrolling = true;
         }
     }
 
@@ -57,7 +63,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Patrol()
     {
-        if (navAgent.remainingDistance > hitThreshold)
+        if (!patrolling)
+            navAgent.SetDestination(newPatrolPoint());
+
+        if (navAgent.remainingDistance < hitThreshold)
         {
             navAgent.SetDestination(newPatrolPoint());
         }
