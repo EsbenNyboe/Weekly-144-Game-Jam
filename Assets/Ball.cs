@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     [SerializeField] float lifeDuration = 8;
     IEnumerator BallMade()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.12f);
         if (transform.parent != null)
             transform.parent = null;
 
