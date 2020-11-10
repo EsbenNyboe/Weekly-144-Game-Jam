@@ -24,11 +24,9 @@ public class WaveSpawner : MonoBehaviour
     int enemyIndex;
     int enemiesAlive;
 
-    private void Start()
-    {
-        SpawnWave();
-    }
-    private void SpawnWave()
+    public GameManager gameManager;
+
+    public void SpawnWave()
     {
         if (waveIndex < wave.Length)
         {
@@ -58,7 +56,8 @@ public class WaveSpawner : MonoBehaviour
     }
     private void Win()
     {
-        waveIndex = 0;
+        gameManager.Win();
+        ResetSpawner();
     }
 
     // call these from elsewhere
@@ -68,7 +67,7 @@ public class WaveSpawner : MonoBehaviour
         if (enemiesAlive < 1)
             SpawnWave();
     }
-    public void PlayerKilled()
+    public void ResetSpawner()
     {
         waveIndex = 0;
     }
