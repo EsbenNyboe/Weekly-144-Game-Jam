@@ -731,6 +731,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1000643375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7142451371777589975, guid: 441a9b5dca9fafe45b0d165bee2619e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1294227770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1000643382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000643375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7da4e592d0746547a2c431e5574fcd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stun: 0
 --- !u!1 &1281605739
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281605741}
   - component: {fileID: 1281605740}
+  - component: {fileID: 1281605742}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -776,6 +796,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281605742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281605739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1693bdde54d744ea9affb7dfba6384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1294227770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1135,6 +1167,11 @@ PrefabInstance:
       propertyPath: hitThreshold
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2721150812668747137, guid: 5613191b0f9d47a4b9636fa134d65cc1,
+        type: 3}
+      propertyPath: detectPlayerThreshold
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2721150812668747141, guid: 5613191b0f9d47a4b9636fa134d65cc1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1189,6 +1226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721150812668747162, guid: 5613191b0f9d47a4b9636fa134d65cc1,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5613191b0f9d47a4b9636fa134d65cc1, type: 3}

@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] float lifeDuration = 8;
     public Rigidbody rb;
+    public bool hitEnemy;
 
     private void Awake()
     {
@@ -32,9 +33,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (hitEnemy && collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().Stun();
+            DestroyBall();
+        }
+
+        if (!hitEnemy && collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerInteractions>().Stun();
             DestroyBall();
         }
     }

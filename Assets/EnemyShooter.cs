@@ -40,6 +40,7 @@ public class EnemyShooter : MonoBehaviour
     {
         Vector3 dir = (enemyScript.Player.position+(transform.up*2)) - shootPosition.position;
         Ball newBall = BallMaker.Instance.GetObject();
+        newBall.hitEnemy = false;
         newBall.transform.position = shootPosition.position;
         newBall.rb.AddForce((dir.normalized) * shootForce,ForceMode.Impulse);
         nextShootTime = 0;

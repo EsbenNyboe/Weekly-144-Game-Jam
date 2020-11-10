@@ -14,35 +14,41 @@ public class EnemyMovement : MonoBehaviour
     public float detectPlayerThreshold = 30;
 
     bool patrolling;
+
     private void Start()
     {
-        enemyScript = GetComponent<Enemy>();
-        hitThreshold = enemyScript.shootRange;
+        TryGetComponent(out enemyScript);
+        if (enemyScript!=null) hitThreshold = enemyScript.shootRange;
+
         TryGetComponent(out navAgent);
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        navAgent.stoppingDistance = hitThreshold;
+        //navAgent.stoppingDistance = hitThreshold;
 
         navAgent.destination = Player.position;
     }
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, Player.position) < detectPlayerThreshold)
+        float playerDistance = Vector3.Distance(transform.position, Player.position);
+
+        if (playerDistance < detectPlayerThreshold && playerDistance > hitThreshold)
         {
+            navAgent.isStopped = false;
+
             navAgent.SetDestination(Player.position);
             patrolling = false;
 
         }
-        else if (Vector3.Distance(transform.position,Player.position) < hitThreshold)
+        else if (playerDistance <= hitThreshold)
         {
             //attack 
+            navAgent.isStopped=true;
             patrolling = false;
 
         }
         else
         {
             Patrol();
-            patrolling = true;
         }
     }
 
@@ -66,11 +72,15 @@ public class EnemyMovement : MonoBehaviour
     void Patrol()
     {
         if (!patrolling)
+        {
+            patrolling = true;
             navAgent.SetDestination(newPatrolPoint());
+        }
 
-        if (navAgent.remainingDistance < hitThreshold)
+        if (navAgent.remainingDistance < 2)
         {
             navAgent.SetDestination(newPatrolPoint());
+
         }
     }
 }
