@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     }
     IEnumerator BallMade()
     {
-        yield return new WaitForSeconds(0.12f);
+        yield return new WaitForSeconds(0.3f);
         if (transform.parent != null)
             transform.parent = null;
 

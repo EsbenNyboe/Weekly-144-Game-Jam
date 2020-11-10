@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform Player;
     [HideInInspector] public PlayerInteractions playerScript;
     public float shootRange = 15;
+    public ParticleSystem stunEffect;
 
     private void Awake()
     {
@@ -32,7 +33,10 @@ public class Enemy : MonoBehaviour
     IEnumerator _Stunned(float duration)
     {
         navAgent.isStopped = true;
+        stunEffect.Play();
         yield return new WaitForSeconds(duration);
+        stunEffect.Stop();
+        stunEffect.Clear();
         navAgent.isStopped = false;
     }
 }
