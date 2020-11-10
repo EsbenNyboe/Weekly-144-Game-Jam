@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float radius = 100;
+    public float radius = 20;
     NavMeshAgent navAgent;
     Enemy enemyScript;
     Transform Player;
@@ -15,19 +15,65 @@ public class EnemyMovement : MonoBehaviour
 
     bool patrolling;
 
+    public bool meleeEnemy;
+
+
+    public delegate void Move();
+    Move movement;
+
     private void Start()
     {
         TryGetComponent(out enemyScript);
-        if (enemyScript!=null) hitThreshold = enemyScript.shootRange;
 
         TryGetComponent(out navAgent);
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         //navAgent.stoppingDistance = hitThreshold;
 
         navAgent.destination = Player.position;
+
+        if (meleeEnemy)
+            movement = MeleeMovement;
+        else
+            movement = RangeMovement;
     }
 
-    private void Update()
+    void RangeMovement()
+    {
+        float playerDistance = Vector3.Distance(transform.position, Player.position);
+        bool playerStunned = enemyScript.playerScript.stun;
+
+        if (playerDistance > detectPlayerThreshold)
+        {
+            Patrol();
+            return;
+        }
+
+        if (playerDistance < detectPlayerThreshold)
+        {
+            navAgent.isStopped = false;
+
+            navAgent.SetDestination(Player.position);
+            patrolling = false;
+
+        }
+        if (enemyScript.inShootingRange())
+        {
+            navAgent.isStopped = true;
+            patrolling = false;
+
+        }
+        else if (playerDistance <= hitThreshold)
+        {
+            navAgent.isStopped = true;
+            patrolling = false;
+
+            //melee attack method
+        }
+
+        
+    }
+
+    void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
 
@@ -41,10 +87,10 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (playerDistance <= hitThreshold)
         {
-            //attack 
-            navAgent.isStopped=true;
+            navAgent.isStopped = true;
             patrolling = false;
 
+            //melee attack method
         }
         else
         {
@@ -52,13 +98,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player hit");
-        }
+        movement?.Invoke();
     }
+
 
     Vector3 newPatrolPoint()
     {
@@ -74,6 +118,8 @@ public class EnemyMovement : MonoBehaviour
         if (!patrolling)
         {
             patrolling = true;
+            navAgent.isStopped = false;
+
             navAgent.SetDestination(newPatrolPoint());
         }
 

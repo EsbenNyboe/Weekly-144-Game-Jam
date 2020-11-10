@@ -59,6 +59,7 @@ public class Player_Racket : MonoBehaviour
             rb = ball.GetComponent<Rigidbody>();
             RBs.Add(ball.GetHashCode(), rb);
         }
+        rb.gameObject.layer = LayersManager.PlayerBall;
 
         rb.AddForce((dir) * throwForce, ForceMode.Force);
     }
@@ -85,6 +86,8 @@ public class Player_Racket : MonoBehaviour
             ballRb.velocity = Vector3.zero;
             Vector3 dir = (player.forward + ballRb.transform.position) - ballRb.transform.position;
             ballRb.AddForce((dir) * swingForce, ForceMode.Impulse);
+            ballRb.gameObject.layer = LayersManager.PlayerBall;
+
         }
     }
 }
