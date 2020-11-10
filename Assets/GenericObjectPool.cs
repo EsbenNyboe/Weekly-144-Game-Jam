@@ -27,7 +27,7 @@ public class GenericObjectPool<T> : MonoBehaviour where T: Component
         //allObjects.Add(MadeObject);
     }
 
-    public void ReturnObject(T DoneObject)
+    public virtual void ReturnObject(T DoneObject)
     {
         DoneObject.gameObject.SetActive(false);
         objects.Enqueue(DoneObject);

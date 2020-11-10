@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float radius = 100;
     NavMeshAgent navAgent;
-
+    Enemy enemyScript;
     Transform Player;
 
     public float hitThreshold = 1;
@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
     bool patrolling;
     private void Start()
     {
+        enemyScript = GetComponent<Enemy>();
+        hitThreshold = enemyScript.shootRange;
         TryGetComponent(out navAgent);
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         navAgent.stoppingDistance = hitThreshold;

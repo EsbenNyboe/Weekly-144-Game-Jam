@@ -5,6 +5,12 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] float lifeDuration = 8;
+    public Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     IEnumerator BallMade()
     {
         yield return new WaitForSeconds(0.12f);

@@ -10,7 +10,6 @@ public class BallMaker : GenericObjectPool<Ball>
 
     private void Start()
     {
-        //StartCoroutine(_MakeBall());
         Instance = this;
     }
 
@@ -19,6 +18,11 @@ public class BallMaker : GenericObjectPool<Ball>
         base.AddObject();
     }
 
+    public override void ReturnObject(Ball DoneObject)
+    {
+        base.ReturnObject(DoneObject);
+        DoneObject.rb.Sleep();
+    }
     IEnumerator _MakeBall()
     {
         Ball ball = GetObject();
