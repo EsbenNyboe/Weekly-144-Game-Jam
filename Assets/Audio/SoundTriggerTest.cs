@@ -16,10 +16,10 @@ public class SoundTriggerTest : MonoBehaviour
     {
         if (enableTest)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-                AudioSystem.sb.playerServe.PlayDefault();
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-                AudioSystem.sb.playerSwing.PlayDefault();
+            //if (Input.GetKeyDown(KeyCode.Mouse0))
+            //    AudioSystem.sb.playerServe.PlayDefault();
+            //if (Input.GetKeyDown(KeyCode.Mouse1))
+            //    AudioSystem.sb.playerSwing.PlayDefault();
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {

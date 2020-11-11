@@ -35,6 +35,7 @@ public class Player_Racket : MonoBehaviour
 
     void Swing()
     {
+        AudioSystem.sb.playerSwing.PlayDefault();
         StartCoroutine(_Swing());
     }
     public float throwForce = 20;
@@ -44,6 +45,7 @@ public class Player_Racket : MonoBehaviour
 
     void Shoot()
     {
+        AudioSystem.sb.playerServe.PlayDefault();
         col.enabled = false;
         var ball = ballPool.GetObject();
         ball.transform.position = ballSpawnPoint.position;
@@ -75,6 +77,7 @@ public class Player_Racket : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
+            AudioSystem.sb.playerShoot.PlayDefault();
             Rigidbody ballRb;
 
             if (!RBs.TryGetValue(other.GetHashCode(), out ballRb))
