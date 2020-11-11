@@ -145,7 +145,7 @@ MonoBehaviour:
   hitThreshold: 10
   detectPlayerThreshold: 50
   meleeEnemy: 1
-  eattackPoint: {fileID: 0}
+  eattackPoint: {fileID: 8081545473429622669}
   attackRange: 0.5
   attackDamage: 40
   playerLayers:
