@@ -9,13 +9,36 @@ public class Enemy : MonoBehaviour
     public Transform Player;
     [HideInInspector] public PlayerInteractions playerScript;
     public float shootRange = 15;
-    public ParticleSystem stunEffect;
+    public int maxHealth = 100;
+    int currentHealth;
 
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         playerScript = Player.GetComponent<PlayerInteractions>();
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        
+        //Play hurt animation
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy Down!");
+        //Call death animation
+
+        //Disable the enemy
+
     }
 
     Coroutine stunCor;
@@ -33,10 +56,7 @@ public class Enemy : MonoBehaviour
     IEnumerator _Stunned(float duration)
     {
         navAgent.isStopped = true;
-        stunEffect.Play();
         yield return new WaitForSeconds(duration);
-        stunEffect.Stop();
-        stunEffect.Clear();
         navAgent.isStopped = false;
     }
 }
