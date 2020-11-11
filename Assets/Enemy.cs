@@ -12,8 +12,10 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public bool stunned;
+    public bool dead;
 
     public ParticleSystem stunEffect;
+    public Animator anim;
 
     private void Awake()
     {
@@ -22,10 +24,13 @@ public class Enemy : MonoBehaviour
         playerScript = Player.GetComponent<PlayerInteractions>();
         currentHealth = maxHealth;
         stunned = false;
+        dead = false;
     }
 
     public void TakeDamage(int damage)
     {
+        anim.SetTrigger("Hit");
+        anim.SetInteger("HitInt", Random.Range(0, 2));
         currentHealth -= damage;
 
         //Play hurt animation
@@ -40,8 +45,9 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Down!");
+        dead = true;
         //Call death animation
-
+        anim.SetTrigger("Dead");
         //Disable the enemy
 
     }
@@ -64,7 +70,9 @@ public class Enemy : MonoBehaviour
         stunEffect.Play();
         stunned = true;
         navAgent.destination = transform.position;
+        anim.SetBool("Stun", true);
         yield return new WaitForSeconds(duration);
+        anim.SetBool("Stun", false);
         stunEffect.Stop();
         stunEffect.Clear();
         stunned = false;
