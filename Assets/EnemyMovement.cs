@@ -17,7 +17,6 @@ public class EnemyMovement : MonoBehaviour
 
     public bool meleeEnemy;
 
-
     public delegate void Move();
     Move movement;
     public Transform eattackPoint;
@@ -31,7 +30,6 @@ public class EnemyMovement : MonoBehaviour
 
         TryGetComponent(out navAgent);
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        //navAgent.stoppingDistance = hitThreshold;
 
         navAgent.destination = Player.position;
 
@@ -44,7 +42,6 @@ public class EnemyMovement : MonoBehaviour
     void RangeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
-        bool playerStunned = enemyScript.playerScript.stun;
 
         if (playerDistance > detectPlayerThreshold)
         {
@@ -119,7 +116,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        movement?.Invoke();
+        if (!enemyScript.stunned)
+            movement?.Invoke();
     }
 
 

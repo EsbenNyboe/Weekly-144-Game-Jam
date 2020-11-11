@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     public float shootRange = 15;
     public int maxHealth = 100;
     int currentHealth;
+    public bool stunned;
+
+    public ParticleSystem stunEffect;
 
     private void Awake()
     {
@@ -18,15 +21,17 @@ public class Enemy : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         playerScript = Player.GetComponent<PlayerInteractions>();
         currentHealth = maxHealth;
+        stunned = false;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        
-        //Play hurt animation
 
-        if(currentHealth <= 0)
+        //Play hurt animation
+        Debug.Log("Enemy damaged!");
+
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -55,8 +60,15 @@ public class Enemy : MonoBehaviour
 
     IEnumerator _Stunned(float duration)
     {
-        navAgent.isStopped = true;
+        //navAgent.isStopped = true;
+        stunEffect.Play();
+        stunned = true;
+        navAgent.destination = transform.position;
         yield return new WaitForSeconds(duration);
-        navAgent.isStopped = false;
+        stunEffect.Stop();
+        stunEffect.Clear();
+        stunned = false;
+
+        //navAgent.isStopped = false;
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593896855}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.05, y: 1.26, z: -0.83}
+  m_LocalPosition: {x: -0.202, y: 1.26, z: -0.88}
   m_LocalScale: {x: 0.65718, y: 0.65718, z: 0.65718}
   m_Children: []
   m_Father: {fileID: 2703068691321773338}
@@ -4960,6 +4960,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   shootRange: 20
   maxHealth: 100
+  stunEffect: {fileID: 1593896856}
 --- !u!1 &7630913383246672013
 GameObject:
   m_ObjectHideFlags: 0
