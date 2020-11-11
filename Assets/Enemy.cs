@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
+    public ParticleSystem stunEffect;
+
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -23,10 +25,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        
-        //Play hurt animation
 
-        if(currentHealth <= 0)
+        //Play hurt animation
+        Debug.Log("Enemy damaged!");
+
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -56,7 +59,10 @@ public class Enemy : MonoBehaviour
     IEnumerator _Stunned(float duration)
     {
         navAgent.isStopped = true;
+        stunEffect.Play();
         yield return new WaitForSeconds(duration);
+        stunEffect.Stop();
+        stunEffect.Clear();
         navAgent.isStopped = false;
     }
 }
