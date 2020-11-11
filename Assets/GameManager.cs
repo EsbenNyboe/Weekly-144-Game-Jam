@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        uiManager.ScreenStart();
+        if (uiManager != null)
+            uiManager.ScreenStart();
     }
     public void Lose()
     {
