@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;
     public LayerMask playerLayers;
-
+    public Animator anim;
     private void Start()
     {
         TryGetComponent(out enemyScript);
@@ -77,11 +78,11 @@ public class EnemyMovement : MonoBehaviour
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
-
+        anim.SetFloat("Speed", navAgent.velocity.magnitude); 
         if (playerDistance < detectPlayerThreshold && playerDistance > hitThreshold)
         {
             navAgent.isStopped = false;
-
+            
             navAgent.SetDestination(Player.position);
             patrolling = false;
 
@@ -97,8 +98,9 @@ public class EnemyMovement : MonoBehaviour
             foreach (Collider player in hitPlayer)
             {
                 Debug.Log("Enemy hit " + player.name);
-                //enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                //enemy.GetComponent<Enemy>().TakeDamage(attackDamage);     
             }
+            anim.SetTrigger("Attack");
         }
         else
         {
@@ -116,8 +118,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!enemyScript.stunned)
-            movement?.Invoke();
+        if (!enemyScript.stunned && !enemyScript.dead)
+            movement?.Invoke(); 
     }
 
 
@@ -135,10 +137,10 @@ public class EnemyMovement : MonoBehaviour
         if (!patrolling)
         {
             patrolling = true;
-            navAgent.isStopped = false;
 
             navAgent.SetDestination(newPatrolPoint());
         }
+            navAgent.isStopped = false;
 
         if (navAgent.remainingDistance < 2)
         {
