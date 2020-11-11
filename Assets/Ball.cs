@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
     public Rigidbody rb;
     public bool hitEnemy;
 
+    public SoundObject ballColl;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,5 +47,7 @@ public class Ball : MonoBehaviour
             collision.gameObject.GetComponent<PlayerInteractions>().Stun();
             DestroyBall();
         }
+
+        ballColl.PlayDefault();
     }
 }
