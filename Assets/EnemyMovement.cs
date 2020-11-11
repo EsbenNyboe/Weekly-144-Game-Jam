@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     public int attackDamage = 40;
     public LayerMask playerLayers;
     public Animator anim;
+    public Vector3 initialDestination;
     private void Start()
     {
         TryGetComponent(out enemyScript);
@@ -39,7 +40,17 @@ public class EnemyMovement : MonoBehaviour
         else
             movement = RangeMovement;
     }
-
+    public void WalkTo()
+    {
+        navAgent.destination = initialDestination;
+        if (navAgent.remainingDistance < 1)
+        {
+            if (meleeEnemy)
+                movement = MeleeMovement;
+            else
+                movement = RangeMovement;
+        }
+    }
     void RangeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);

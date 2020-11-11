@@ -42,9 +42,10 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(wave[waveIndex].enemy[enemyIndex].spawnTiming);
 
         GameObject ePrefab = wave[waveIndex].enemy[enemyIndex].prefab;
-        Vector3 eSpawnPos = wave[waveIndex].enemy[enemyIndex].enemySpawner.transform.position;
+        Transform eSpawnPos = wave[waveIndex].enemy[enemyIndex].enemySpawner.transform;
         Quaternion eSpawnRot = wave[waveIndex].enemy[enemyIndex].enemySpawner.transform.rotation;
-        Instantiate(ePrefab, eSpawnPos, eSpawnRot);
+        GameObject newEnemy = Instantiate(ePrefab, eSpawnPos.position, eSpawnRot);
+        newEnemy.GetComponent<EnemyMovement>().initialDestination = eSpawnPos.GetChild(0).position;
 
         enemyIndex++;
         if (enemyIndex < wave[waveIndex].enemy.Length)
