@@ -20,6 +20,10 @@ public class EnemyMovement : MonoBehaviour
 
     public delegate void Move();
     Move movement;
+    public Transform eattackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;
+    public LayerMask playerLayers;
 
     private void Start()
     {
@@ -72,7 +76,7 @@ public class EnemyMovement : MonoBehaviour
 
         
     }
-
+    
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
@@ -91,11 +95,26 @@ public class EnemyMovement : MonoBehaviour
             patrolling = false;
 
             //melee attack method
+            Collider[] hitPlayer = Physics.OverlapSphere(eattackPoint.position, attackRange, playerLayers);
+            
+            foreach (Collider player in hitPlayer)
+            {
+                Debug.Log("Enemy hit " + player.name);
+                //enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            }
         }
         else
         {
             Patrol();
         }
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        if (eattackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(eattackPoint.position, attackRange);
     }
 
     private void Update()

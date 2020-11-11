@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -45,6 +46,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;        
+    public LayerMask enemyLayers;
+
+
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -63,10 +71,36 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
+
+    void Attack()
+    {
+        //Play attack anim
+        //Detect enemies in range of attack
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        
+        // Damage them
+        foreach(Collider enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
     private void Update()
     {
         MyInput();
         Look();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Attack();
+        }
     }
 
     /// <summary>
