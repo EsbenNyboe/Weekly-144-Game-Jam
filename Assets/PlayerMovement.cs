@@ -50,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;        
     public LayerMask enemyLayers;
-    public Animator anim;
-
+    
 
     void Awake()
     {
@@ -75,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         //Play attack anim
-        anim.SetTrigger("Swing");
+        
         //Detect enemies in range of attack
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
         
