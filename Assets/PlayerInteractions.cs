@@ -26,6 +26,7 @@ public class PlayerInteractions : MonoBehaviour
     IEnumerator _Stunned(float duration)
     {
         rb.isKinematic = stun = stunUI.enabled = true;
+        Soundbank.instance.playerStunned.PlayDefault();
 
         yield return new WaitForSeconds(duration);
         rb.isKinematic = stun = stunUI.enabled = false;

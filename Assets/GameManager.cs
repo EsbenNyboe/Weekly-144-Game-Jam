@@ -7,8 +7,12 @@ public class GameManager : MonoBehaviour
     public WaveSpawner waveSpawner;
     public UserInterfaceManager uiManager;
 
+    public static GameManager instance;
+
     void Start()
     {
+        instance = this;
+
         if (uiManager != null)
             uiManager.ScreenStart();
     }

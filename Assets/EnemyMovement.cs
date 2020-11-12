@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent navAgent;
     Enemy enemyScript;
     Transform Player;
+    PlayerStats playerHP;
 
     public float hitThreshold = 1;
     public float detectPlayerThreshold = 30;
@@ -22,27 +23,43 @@ public class EnemyMovement : MonoBehaviour
     Move movement;
     public Transform eattackPoint;
     public float attackRange = 0.5f;
-    public int attackDamage = 40;
+    public int attackDamage = 1;
+    public float attackDelay = 1;
+
     public LayerMask playerLayers;
-    public Animator anim;
+    Animator anim;
     public Vector3 initialDestination;
+
+    bool canAttack;
+
     private void Start()
     {
         TryGetComponent(out enemyScript);
-
         TryGetComponent(out navAgent);
+        anim = enemyScript.anim;
         Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        playerHP = Player.GetComponent<PlayerStats>();
 
         navAgent.destination = Player.position;
+        canAttack = true;
 
-        if (meleeEnemy)
-            movement = MeleeMovement;
+        if (initialDestination != Vector3.zero)
+            movement = WalkTo;
         else
-            movement = RangeMovement;
+        {
+            if (navAgent.remainingDistance < 1)
+            {
+                if (meleeEnemy)
+                    movement = MeleeMovement;
+                else
+                    movement = RangeMovement;
+            }
+        }
     }
     public void WalkTo()
     {
         navAgent.destination = initialDestination;
+
         if (navAgent.remainingDistance < 1)
         {
             if (meleeEnemy)
@@ -80,16 +97,16 @@ public class EnemyMovement : MonoBehaviour
             navAgent.isStopped = true;
             patrolling = false;
 
-            //melee attack method
+            StartCoroutine(Attack());
+
         }
 
-        
+
     }
     
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
-        anim.SetFloat("Speed", navAgent.velocity.magnitude); 
         if (playerDistance < detectPlayerThreshold && playerDistance > hitThreshold)
         {
             navAgent.isStopped = false;
@@ -103,15 +120,8 @@ public class EnemyMovement : MonoBehaviour
             navAgent.isStopped = true;
             patrolling = false;
 
-            //melee attack method
-            Collider[] hitPlayer = Physics.OverlapSphere(eattackPoint.position, attackRange, playerLayers);
+            StartCoroutine(Attack());
             
-            foreach (Collider player in hitPlayer)
-            {
-                Debug.Log("Enemy hit " + player.name);
-                //enemy.GetComponent<Enemy>().TakeDamage(attackDamage);     
-            }
-            anim.SetTrigger("Attack");
         }
         else
         {
@@ -119,6 +129,28 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     
+    IEnumerator Attack()
+    {
+        if (!canAttack)
+            yield break;
+
+        canAttack = false;
+
+        Collider[] hitPlayer = Physics.OverlapSphere(eattackPoint.position, attackRange, playerLayers);
+
+        if (hitPlayer.Length > 0)
+        {
+            enemyScript.PlaySound(EnemySounds.Attack);
+            playerHP.TakeDamage(attackDamage);
+        }
+
+        anim.SetTrigger("Attack");
+        Debug.Log("attacked player");
+
+        yield return new WaitForSeconds(attackDelay);
+
+        canAttack = true;
+    }
     void OnDrawGizmosSelected()
     {
         if (eattackPoint == null)
@@ -129,6 +161,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        anim.SetFloat("Speed", navAgent.velocity.magnitude);
+
         if (!enemyScript.stunned && !enemyScript.dead)
             movement?.Invoke(); 
     }

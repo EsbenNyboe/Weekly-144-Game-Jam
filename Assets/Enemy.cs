@@ -16,19 +16,28 @@ public class Enemy : MonoBehaviour
 
     public ParticleSystem stunEffect;
     public Animator anim;
+    AudioSource audio;
+    public AudioClip attacking, takeDamage, spawned, inRange, stun, died;
+
+
 
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        audio = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         playerScript = Player.GetComponent<PlayerInteractions>();
         currentHealth = maxHealth;
         stunned = false;
         dead = false;
+        PlaySound(EnemySounds.Spawned);
+
     }
 
     public void TakeDamage(int damage)
     {
+        PlaySound(EnemySounds.GetHit);
+
         anim.SetTrigger("Hit");
         anim.SetInteger("HitInt", Random.Range(0, 2));
         currentHealth -= damage;
@@ -49,6 +58,8 @@ public class Enemy : MonoBehaviour
         //Call death animation
         anim.SetTrigger("Dead");
         //Disable the enemy
+        PlaySound(EnemySounds.Dead);
+
 
     }
 
@@ -67,6 +78,7 @@ public class Enemy : MonoBehaviour
     IEnumerator _Stunned(float duration)
     {
         //navAgent.isStopped = true;
+        PlaySound(EnemySounds.Stunned);
         stunEffect.Play();
         stunned = true;
         navAgent.destination = transform.position;
@@ -79,4 +91,38 @@ public class Enemy : MonoBehaviour
 
         //navAgent.isStopped = false;
     }
+
+    public void PlaySound(EnemySounds sound)
+    {
+        switch (sound)
+        {
+            case EnemySounds.Attack:
+                audio.PlayOneShot(attacking);
+                break;
+            //case EnemySounds.GetHit:
+            //    audio.PlayOneShot(takeDamage);
+
+            //    break;
+            //case EnemySounds.InRange:
+            //    audio.PlayOneShot(inRange);
+
+            //    break;
+            //case EnemySounds.Spawned:
+            //    audio.PlayOneShot(spawned);
+
+            //    break;
+            //case EnemySounds.Stunned:
+            //    audio.PlayOneShot(stun);
+
+            //    break;
+            //case EnemySounds.Dead:
+            //    audio.PlayOneShot(died);
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    
 }

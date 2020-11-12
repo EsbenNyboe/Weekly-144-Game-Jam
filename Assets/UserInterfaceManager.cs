@@ -44,10 +44,10 @@ public class UserInterfaceManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-            ScreenWin();
-        if (Input.GetKeyDown(KeyCode.L))
-            ScreenLose();
+        //if (Input.GetKeyDown(KeyCode.W))
+        //    ScreenWin();
+        //if (Input.GetKeyDown(KeyCode.L))
+        //    ScreenLose();
     }
     public void ScreenStart()
     {
