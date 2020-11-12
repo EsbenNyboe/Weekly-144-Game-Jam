@@ -941,6 +941,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489910475}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &553614322 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4451868858357863541, guid: 754425556b440c04da5d51b945e33369,
+    type: 3}
+  m_PrefabInstance: {fileID: 621107867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &582159666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,6 +1023,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1902197655848821426, guid: 754425556b440c04da5d51b945e33369,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 553614322}
     - target: {fileID: 4586510017561645313, guid: 754425556b440c04da5d51b945e33369,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1072,11 +1083,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4586510017561645315, guid: 754425556b440c04da5d51b945e33369,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4586510017561645316, guid: 754425556b440c04da5d51b945e33369,
         type: 3}
       propertyPath: m_Name
       value: Melee Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4586510017561645317, guid: 754425556b440c04da5d51b945e33369,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 553614322}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754425556b440c04da5d51b945e33369, type: 3}
 --- !u!1 &757463861
