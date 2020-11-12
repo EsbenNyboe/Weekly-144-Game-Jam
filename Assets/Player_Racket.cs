@@ -101,7 +101,7 @@ public class Player_Racket : MonoBehaviour
             rb = ball.GetComponent<Rigidbody>();
             RBs.Add(ball.GetHashCode(), rb);
         }
-        rb.gameObject.layer = LayersManager.PlayerBall;
+        //rb.gameObject.layer = LayersManager.PlayerBall;
 
         rb.AddForce((dir) * throwForce, ForceMode.Force);
     }
