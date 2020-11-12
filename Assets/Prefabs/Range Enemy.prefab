@@ -5782,11 +5782,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 40
-  hitThreshold: 5
+  hitThreshold: 10
   detectPlayerThreshold: 50
   meleeEnemy: 0
   eattackPoint: {fileID: 193775766930490799}
-  attackRange: 4
+  attackRange: 9
   attackDamage: 1
   attackDelay: 1
   playerLayers:
