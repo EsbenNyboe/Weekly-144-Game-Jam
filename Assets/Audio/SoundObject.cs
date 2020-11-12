@@ -76,6 +76,8 @@ public class SoundObject : MonoBehaviour
     }
     public void PlayDefault()
     {
+        if (debug)
+            Debug.Log("sound:" + this.name, gameObject);
         switch (playbackMode)
         {
             case PlaybackMode.RandomNoRepeat:
@@ -197,8 +199,8 @@ public class SoundObject : MonoBehaviour
         LoadVolume(audioSource);
         LoadPitch(audioSource);
 
-        if (debug)
-            print("v:" + audioSource.volume + " p:" + audioSource.pitch + " sel:" + selFileIndex);
+        //if (debug)
+        //    print("v:" + audioSource.volume + " p:" + audioSource.pitch + " sel:" + selFileIndex);
     }
     private void LoadVolume(AudioSource audioSource)
     {
