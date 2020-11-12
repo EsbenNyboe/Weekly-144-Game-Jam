@@ -44,7 +44,7 @@ public class Ball : MonoBehaviour
                 DestroyBall();
             }
 
-            if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("PlayerBody"))
             {
                 collision.gameObject.GetComponent<PlayerInteractions>().Stun();
                 DestroyBall();
