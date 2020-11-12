@@ -584,7 +584,7 @@ PrefabInstance:
     - target: {fileID: 444473634106976969, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}
       propertyPath: throwForce
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 444473634106976969, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}
@@ -600,6 +600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rechargeTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 444473634106976969, guid: ed161d9b61ca3534eb63fa2c2d93a553,
+        type: 3}
+      propertyPath: swingForce
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 444473634106976970, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}

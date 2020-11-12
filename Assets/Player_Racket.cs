@@ -121,7 +121,7 @@ public class Player_Racket : MonoBehaviour
         {
             AudioSystem.sb.playerShoot.PlayDefault();
             Rigidbody ballRb;
-
+            other.transform.parent = null;
             if (!RBs.TryGetValue(other.GetHashCode(), out ballRb))
             {
                 ballRb = other.GetComponent<Rigidbody>();
