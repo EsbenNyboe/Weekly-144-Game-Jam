@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserInterfaceManager : MonoBehaviour
 {
@@ -78,6 +79,9 @@ public class UserInterfaceManager : MonoBehaviour
         gameManager.LevelStart();
         MovingCamera();
         inGame = true;
+
+        if (PlayerStats.dead)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
