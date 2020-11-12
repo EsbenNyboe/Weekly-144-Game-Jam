@@ -15,6 +15,7 @@ public class EnemySoundbank : MonoBehaviour
     public SoundObject enemyFootsteps;
     public SoundObject enemyInRangeBrute;
     public SoundObject enemyInRangeShooter;
+    public SoundObject enemySpawn;
 
     public static EnemySoundbank instance;
 

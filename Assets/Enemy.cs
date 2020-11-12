@@ -16,15 +16,18 @@ public class Enemy : MonoBehaviour
 
     public ParticleSystem stunEffect;
     public Animator anim;
-    AudioSource audio;
-    public AudioClip attacking, takeDamage, spawned, inRange, stun, died;
+
+    EnemySoundbank enemySoundbank;
+    //AudioSource audio;
+    //public AudioClip attacking, takeDamage, spawned, inRange, stun, died;
 
 
 
     private void Awake()
     {
+        enemySoundbank = GetComponentInChildren<EnemySoundbank>();
         navAgent = GetComponent<NavMeshAgent>();
-        audio = GetComponent<AudioSource>();
+        //audio = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         playerScript = Player.GetComponent<PlayerInteractions>();
         currentHealth = maxHealth;
@@ -97,27 +100,22 @@ public class Enemy : MonoBehaviour
         switch (sound)
         {
             case EnemySounds.Attack:
-                audio.PlayOneShot(attacking);
+                enemySoundbank.enemyAttack.PlayDefault();
                 break;
-            //case EnemySounds.GetHit:
-            //    audio.PlayOneShot(takeDamage);
-
-            //    break;
-            //case EnemySounds.InRange:
-            //    audio.PlayOneShot(inRange);
-
-            //    break;
-            //case EnemySounds.Spawned:
-            //    audio.PlayOneShot(spawned);
-
-            //    break;
-            //case EnemySounds.Stunned:
-            //    audio.PlayOneShot(stun);
-
-            //    break;
-            //case EnemySounds.Dead:
-            //    audio.PlayOneShot(died);
-
+            case EnemySounds.GetHit:
+                enemySoundbank.enemyDamaged.PlayDefault();
+                break;
+            case EnemySounds.InRange:
+                enemySoundbank.enemyInRangeBrute.PlayDefault(); // fix - this shouldn't happen on shooters, i think
+                break;
+            case EnemySounds.Spawned:
+                enemySoundbank.enemySpawn.PlayDefault();
+                break;
+            case EnemySounds.Stunned:
+                enemySoundbank.enemyStunned.PlayDefault();
+                break;
+            case EnemySounds.Dead:
+                enemySoundbank.enemyKilled.PlayDefault();
                 break;
             default:
                 break;

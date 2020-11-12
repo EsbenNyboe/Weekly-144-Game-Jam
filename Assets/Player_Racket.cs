@@ -33,8 +33,10 @@ public class Player_Racket : MonoBehaviour
         }
     }
 
+    public Animator racketAnimator;
     void Swing()
     {
+        racketAnimator.SetTrigger("Swing");
         AudioSystem.sb.playerSwing.PlayDefault();
         StartCoroutine(_Swing());
     }
