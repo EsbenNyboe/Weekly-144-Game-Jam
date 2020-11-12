@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         //audio = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerScript = Player.GetComponent<PlayerInteractions>();
+        playerScript = FindObjectOfType<PlayerInteractions>();
         currentHealth = maxHealth;
         stunned = false;
         dead = false;

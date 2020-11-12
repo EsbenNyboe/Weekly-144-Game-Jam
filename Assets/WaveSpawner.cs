@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -23,10 +24,9 @@ public class WaveSpawner : MonoBehaviour
     int waveIndex;
     int enemyIndex;
     int enemiesAlive;
-    private void Start()
-    {
-        //StartLevel();
-    }
+
+    public TextMeshProUGUI wavesCount;
+
     public GameManager gameManager;
 
     public void StartLevel()
@@ -38,6 +38,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (waveIndex < wave.Length)
         {
+            wavesCount.text = wave.Length - waveIndex + " waves left";
             enemyIndex = 0;
             enemiesAlive = wave[waveIndex].enemy.Length;
             StartCoroutine(SpawnEnemy());
