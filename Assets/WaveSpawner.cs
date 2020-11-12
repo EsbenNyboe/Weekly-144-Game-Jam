@@ -78,7 +78,10 @@ public class WaveSpawner : MonoBehaviour
     {
         enemiesAlive--;
         if (enemiesAlive < 1)
+        {
+            AudioSystem.sb.waveCleared.PlayDefault();
             SpawnWave();
+        }
     }
     public void ResetSpawner()
     {

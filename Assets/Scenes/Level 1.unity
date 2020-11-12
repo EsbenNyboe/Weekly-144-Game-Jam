@@ -5133,7 +5133,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5296,7 +5296,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -11126,7 +11126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a2ca76e4a48d64eb5074bd1b9f072a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyServe: {fileID: 0}
+  enemySwingVoice: {fileID: 0}
   enemySwing: {fileID: 5131695927021405733}
   enemyShoot: {fileID: 5131695927976715344}
   enemyAttack: {fileID: 5131695927831614849}

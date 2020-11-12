@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySoundbank : MonoBehaviour
 {
-    public SoundObject enemyServe;
+    public SoundObject enemySwingVoice;
     public SoundObject enemySwing;
     public SoundObject enemyShoot;
     public SoundObject enemyAttack;

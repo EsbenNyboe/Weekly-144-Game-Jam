@@ -17,6 +17,14 @@ public class SoundsFootsteps : MonoBehaviour
     {
         enemySoundbank.enemyFootsteps.PlayDefault();
     }
+    public void PlaySoundSwing()
+    {
+        enemySoundbank.enemySwing.PlayDefault();
+    }
+    public void PlaySoundSwingVoice()
+    {
+        enemySoundbank.enemySwingVoice.PlayDefault();
+    }
     public void PlaySoundAttack()
     {
         enemySoundbank.enemyAttack.PlayDefault();
