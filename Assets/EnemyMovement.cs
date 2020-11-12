@@ -161,6 +161,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (UserInterfaceManager.frozen)
+            return;
+
         anim.SetFloat("Speed", navAgent.velocity.magnitude);
 
         if (!enemyScript.stunned && !enemyScript.dead)
