@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player_Racket : MonoBehaviour
@@ -11,8 +12,18 @@ public class Player_Racket : MonoBehaviour
     public Transform ballSpawnPoint;
     BallMaker_Player ballPool;
 
+    public int maxBalls = 5;
+    int currentBalls;
+    public float rechargeTime;
+    float timer;
+
+    public TextMeshProUGUI ballCount;
+
     private void Start()
     {
+        currentBalls = maxBalls;
+        ballCount.text = currentBalls.ToString();
+
         col = GetComponent<Collider>();
         ballPool = GetComponent<BallMaker_Player>();
         if (ballSpawnPoint == null)
@@ -25,6 +36,19 @@ public class Player_Racket : MonoBehaviour
     {
         if (UserInterfaceManager.frozen)
             return;
+
+        if (currentBalls < maxBalls)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            } else
+            {
+                timer = rechargeTime;
+                currentBalls++;
+                ballCount.text = currentBalls.ToString();
+            }
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -47,14 +71,25 @@ public class Player_Racket : MonoBehaviour
 
     Dictionary<int, Rigidbody> RBs = new Dictionary<int, Rigidbody>();
 
+    void GetBall()
+    {
+        currentBalls--;
+        ballCount.text = currentBalls.ToString();
+        timer = rechargeTime;
+    }
 
     void Shoot()
     {
+        if (currentBalls <= 0)
+            return;
+
         AudioSystem.sb.playerServe.PlayDefault();
         col.enabled = false;
         var ball = ballPool.GetObject();
         ball.transform.position = ballSpawnPoint.position;
         ball.transform.parent = transform;
+
+        GetBall();
 
         Vector3 dir = (transform.up + ball.transform.position) - ball.transform.position;
         Rigidbody rb;
