@@ -101,6 +101,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Attack();
         }
+        if (rb.velocity.magnitude != 0 && grounded)
+        {
+            Soundbank.instance.playerFootsteps.PlayDefault();
+        }
     }
 
     /// <summary>

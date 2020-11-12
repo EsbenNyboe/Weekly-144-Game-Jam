@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySoundbank : MonoBehaviour
 {
     public SoundObject enemyServe;
@@ -14,4 +15,11 @@ public class EnemySoundbank : MonoBehaviour
     public SoundObject enemyFootsteps;
     public SoundObject enemyInRangeBrute;
     public SoundObject enemyInRangeShooter;
+
+    public static EnemySoundbank instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 }

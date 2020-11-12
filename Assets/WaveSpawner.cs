@@ -23,7 +23,10 @@ public class WaveSpawner : MonoBehaviour
     int waveIndex;
     int enemyIndex;
     int enemiesAlive;
-
+    private void Start()
+    {
+        SpawnWave();
+    }
     public GameManager gameManager;
 
     public void SpawnWave()
