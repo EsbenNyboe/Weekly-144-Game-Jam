@@ -21,6 +21,9 @@ public class EnemyShooter : MonoBehaviour
 
     private void Update()
     {
+        if (UserInterfaceManager.frozen)
+            return;
+
         canShoot = enemyScript.inShootingRange();
 
         if (canShoot)
