@@ -302,6 +302,11 @@ PrefabInstance:
       propertyPath: healthBarFill
       value: 
       objectReference: {fileID: 803324643}
+    - target: {fileID: 7142451371777589975, guid: 441a9b5dca9fafe45b0d165bee2619e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerBody
+      objectReference: {fileID: 0}
     - target: {fileID: 7142451371781844377, guid: 441a9b5dca9fafe45b0d165bee2619e9,
         type: 3}
       propertyPath: m_Name
@@ -1531,7 +1536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 329, y: -131}
+  m_AnchoredPosition: {x: 89.4, y: -131}
   m_SizeDelta: {x: 498.4041, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183322712
@@ -5072,7 +5077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 219.73999, y: 147.1}
+  m_AnchoredPosition: {x: -5.9000244, y: 147.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698696156
@@ -5235,7 +5240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.1, y: 100.100006}
+  m_AnchoredPosition: {x: -664.2, y: 100.100006}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810026514
@@ -5563,7 +5568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 256}
+  m_AnchoredPosition: {x: -458.54, y: 256}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126575880
@@ -5619,7 +5624,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

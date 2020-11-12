@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Ball
   - TextCanvas
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
