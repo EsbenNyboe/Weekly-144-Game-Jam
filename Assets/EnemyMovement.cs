@@ -37,8 +37,8 @@ public class EnemyMovement : MonoBehaviour
         TryGetComponent(out enemyScript);
         TryGetComponent(out navAgent);
         anim = enemyScript.anim;
-        Player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        playerHP = Player.GetComponent<PlayerStats>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerHP = FindObjectOfType<PlayerStats>();
 
         navAgent.destination = Player.position;
         canAttack = true;
@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
     {
         navAgent.destination = initialDestination;
 
-        if (navAgent.remainingDistance < 1)
+        if (navAgent.remainingDistance < 1 || Vector3.Distance(transform.position, Player.position) < detectPlayerThreshold)
         {
             if (meleeEnemy)
                 movement = MeleeMovement;
