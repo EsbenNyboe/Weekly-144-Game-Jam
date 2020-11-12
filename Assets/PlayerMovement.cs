@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
-        //Play attack anim
+       
         //Detect enemies in range of attack
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
         
