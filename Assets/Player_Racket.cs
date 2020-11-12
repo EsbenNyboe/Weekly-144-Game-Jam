@@ -23,6 +23,9 @@ public class Player_Racket : MonoBehaviour
 
     private void Update()
     {
+        if (UserInterfaceManager.frozen)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Swing();

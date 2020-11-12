@@ -19,6 +19,7 @@ public class UserInterfaceManager : MonoBehaviour
 
     public GameManager gameManager;
 
+    public static bool frozen;
     void Awake()
     {
         textTitle.SetActive(false);
@@ -28,6 +29,8 @@ public class UserInterfaceManager : MonoBehaviour
         buttonRestart.SetActive(false);
         buttonUnpause.SetActive(false);
         buttonExit.SetActive(false);
+
+        frozen = false;
     }
     void Update()
     {
@@ -112,9 +115,18 @@ public class UserInterfaceManager : MonoBehaviour
     void StaticCamera()
     {
         //HEEEELP: how to switch between static and moving camera
+        frozen = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     void MovingCamera()
     {
         //HELPP
+        frozen = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 }
