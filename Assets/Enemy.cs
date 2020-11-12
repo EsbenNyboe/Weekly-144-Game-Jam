@@ -33,6 +33,12 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         stunned = false;
         dead = false;
+
+
+    }
+
+    private void Start()
+    {
         PlaySound(EnemySounds.Spawned);
 
     }

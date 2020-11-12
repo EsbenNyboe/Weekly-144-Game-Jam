@@ -78,6 +78,14 @@ public class UserInterfaceManager : MonoBehaviour
         gameManager.LevelStart();
         MovingCamera();
         inGame = true;
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+
     }
     public void DisplayUI()
     {

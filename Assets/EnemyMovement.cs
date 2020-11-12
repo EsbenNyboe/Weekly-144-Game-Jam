@@ -140,12 +140,13 @@ public class EnemyMovement : MonoBehaviour
 
         if (hitPlayer.Length > 0)
         {
+            yield return new WaitForSeconds(0.15f);
+
             enemyScript.PlaySound(EnemySounds.Attack);
             playerHP.TakeDamage(attackDamage);
         }
 
         anim.SetTrigger("Attack");
-        Debug.Log("attacked player");
 
         yield return new WaitForSeconds(attackDelay);
 
