@@ -5320,7 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da29a39b4e8aa224bb798b56b60e7ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySoundbank: {fileID: 0}
+  enemySoundbank: {fileID: 2843085192652764746}
 --- !u!1 &1425294469875067963
 GameObject:
   m_ObjectHideFlags: 0
@@ -5766,7 +5766,7 @@ MonoBehaviour:
   stunned: 0
   dead: 0
   stunEffect: {fileID: 1593896856}
-  anim: {fileID: 0}
+  anim: {fileID: 6264179379154553963}
 --- !u!114 &2703068691321773342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7760,6 +7760,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b248908e39e8d594594593973892a408, type: 3}
+--- !u!114 &2843085192652764746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8340082031229969578, guid: b248908e39e8d594594593973892a408,
+    type: 3}
+  m_PrefabInstance: {fileID: 6109491885798658784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a2ca76e4a48d64eb5074bd1b9f072a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &157440039092030502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6261710342995844806, guid: b248908e39e8d594594593973892a408,
