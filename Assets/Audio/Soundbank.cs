@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemySounds
+{
+    Attack,
+    GetHit,
+    InRange,
+    Spawned,
+    Stunned,
+    Dead
+}
+
+
 public class Soundbank : MonoBehaviour
 {
     public SoundObject playerServe;
@@ -17,6 +28,7 @@ public class Soundbank : MonoBehaviour
     public SoundObject waveCleared;
     public SoundObject musicLoop;
 
+    public static Soundbank instance;
     // local sound objects: for 3d effect
     //public SoundObject ballColl;
     //public SoundObject enemyServe;
@@ -29,4 +41,9 @@ public class Soundbank : MonoBehaviour
     //public SoundObject enemyFootsteps;
     //public SoundObject enemyInRangeBrute;
     //public SoundObject enemyInRangeShooter;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 }
