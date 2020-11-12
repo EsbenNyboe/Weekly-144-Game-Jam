@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - TextCanvas
   - PlayerBody
+  - PlayerHead
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     Move movement;
     public Transform eattackPoint;
     public float attackRange = 0.5f;
-    public static int attackDamage = 1;
+    public int attackDamage = 1;
     public float attackDelay = 1;
 
     public LayerMask playerLayers;
@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
         TryGetComponent(out enemyScript);
         TryGetComponent(out navAgent);
         anim = enemyScript.anim;
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = GameObject.FindGameObjectWithTag("PlayerBody").transform;
         //playerHP = FindObjectOfType<PlayerStats>();
 
         navAgent.destination = Player.position;
@@ -150,7 +150,6 @@ public class EnemyMovement : MonoBehaviour
 
         canAttack = false;
 
-        yield return new WaitForSeconds(1f);
 
         Collider[] hitPlayer = Physics.OverlapSphere(eattackPoint.position, attackRange, playerLayers);
 

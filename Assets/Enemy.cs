@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         enemySoundbank = GetComponentInChildren<EnemySoundbank>();
         navAgent = GetComponent<NavMeshAgent>();
         //audio = GetComponent<AudioSource>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = GameObject.FindGameObjectWithTag("PlayerBody").transform;
         playerScript = FindObjectOfType<PlayerInteractions>();
         currentHealth = maxHealth;
         stunned = false;
