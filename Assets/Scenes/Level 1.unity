@@ -311,6 +311,16 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7142451371777589968, guid: 441a9b5dca9fafe45b0d165bee2619e9,
+        type: 3}
+      propertyPath: attackRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142451371777589968, guid: 441a9b5dca9fafe45b0d165bee2619e9,
+        type: 3}
+      propertyPath: attackDamage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7142451371777589975, guid: 441a9b5dca9fafe45b0d165bee2619e9,
         type: 3}
       propertyPath: m_TagString
@@ -1210,7 +1220,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh159020
+  m_Name: pb_Mesh291528
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
