@@ -78,6 +78,11 @@ public class Enemy : MonoBehaviour
     {
         return Vector3.Distance(Player.position, transform.position) < shootRange && !playerScript.stun;
     }
+    public bool inShootingRangeNoCareAboutStun()
+    {
+        return Vector3.Distance(Player.position, transform.position) < shootRange;
+    }
+
     public void Stun(float duration = 1)
     {
         if (stunCor != null)

@@ -32,9 +32,11 @@ public class EnemyMovement : MonoBehaviour
 
     bool canAttack;
 
+    EnemySoundbank enemySoundbank;
+
     private void Start()
     {
-        
+        enemySoundbank = GetComponentInChildren<EnemySoundbank>();
 
         TryGetComponent(out enemyScript);
         TryGetComponent(out navAgent);
@@ -68,6 +70,8 @@ public class EnemyMovement : MonoBehaviour
                 movement = RangeMovement;
         }
     }
+
+    bool shootSoundTriggered;
     void RangeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
@@ -86,8 +90,16 @@ public class EnemyMovement : MonoBehaviour
             patrolling = false;
 
         }
+
+        if (!enemyScript.inShootingRangeNoCareAboutStun())
+            shootSoundTriggered = false;
         if (enemyScript.inShootingRange())
         {
+            if (!shootSoundTriggered)
+            {
+                shootSoundTriggered = true;
+                enemySoundbank.enemyInRangeShooter.PlayDefault();
+            }
             navAgent.isStopped = true;
             patrolling = false;
 
