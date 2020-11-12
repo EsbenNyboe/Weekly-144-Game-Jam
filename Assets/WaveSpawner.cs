@@ -29,8 +29,11 @@ public class WaveSpawner : MonoBehaviour
 
     public GameManager gameManager;
 
+    public static WaveSpawner instance;
+
     public void StartLevel()
     {
+        instance = this;
         waveIndex = 0;
         SpawnWave();
     }

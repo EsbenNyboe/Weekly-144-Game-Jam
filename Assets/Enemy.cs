@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
 
-        Debug.Log("Enemy Down!");
+        
         dead = true;
         //Call death animation
         anim.SetTrigger("Dead");
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
         PlaySound(EnemySounds.Dead);
         navAgent.isStopped = true;
         GetComponent<Collider>().enabled = false;
-
+        WaveSpawner.instance.EnemyKilled();
     }
 
     Coroutine stunCor;

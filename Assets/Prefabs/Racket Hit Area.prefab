@@ -107,9 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150a7c89bdb2ec24cbd6a1a725eed539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingDuration: 1
+  swingDuration: 0.15
+  player: {fileID: 0}
   swingForce: 15
   ballSpawnPoint: {fileID: 0}
+  maxBalls: 5
+  rechargeTime: 0
+  ballCount: {fileID: 0}
+  racketAnimator: {fileID: 0}
   throwForce: 20
 --- !u!114 &444473634106976968
 MonoBehaviour:

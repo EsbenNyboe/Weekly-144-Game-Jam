@@ -83,6 +83,8 @@ public class Player_Racket : MonoBehaviour
         if (currentBalls <= 0)
             return;
 
+        col.enabled = false;
+
         AudioSystem.sb.playerServe.PlayDefault();
         col.enabled = false;
         var ball = ballPool.GetObject();
@@ -115,7 +117,7 @@ public class Player_Racket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball"))
+        if (other.gameObject.layer == LayersManager.EnemyBall || other.gameObject.layer == LayersManager.DefaultBall)
         {
             AudioSystem.sb.playerShoot.PlayDefault();
             Rigidbody ballRb;
