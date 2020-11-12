@@ -5919,6 +5919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8768614843755107938}
   - component: {fileID: 4451868858357863541}
+  - component: {fileID: 1289170220779520571}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -5961,6 +5962,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1289170220779520571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670759056922049460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da29a39b4e8aa224bb798b56b60e7ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySoundbank: {fileID: 2091677752775885419}
 --- !u!1 &3671778076766674821
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,3 +7847,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7978915905966958273}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091677752775885419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8340082031229969578, guid: b248908e39e8d594594593973892a408,
+    type: 3}
+  m_PrefabInstance: {fileID: 7978915905966958273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a2ca76e4a48d64eb5074bd1b9f072a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
