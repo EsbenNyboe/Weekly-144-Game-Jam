@@ -11,12 +11,15 @@ public class PlayerStats : MonoBehaviour
     public Image healthBarFill;
     PlayerMovement movement;
 
+    public static bool dead;
+
     private void Start()
     {
         TryGetComponent(out movement);
 
         health = startHealth;
         healthBarFill.fillAmount = health / startHealth;
+        dead = false;
     }
 
     public void TakeDamage(int damage)
@@ -34,7 +37,11 @@ public class PlayerStats : MonoBehaviour
     void Die()
     {
         movement.enabled = false;
+        dead = true;
         Soundbank.instance.playerKilled.PlayDefault();
         GameManager.instance.Lose();
+
+        health = startHealth;
+        healthBarFill.fillAmount = health / startHealth;
     }
 }
