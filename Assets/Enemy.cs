@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public Animator anim;
 
     EnemySoundbank enemySoundbank;
+
+    public ParticleSystem blood;
     //AudioSource audio;
     //public AudioClip attacking, takeDamage, spawned, inRange, stun, died;
 
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         AudioSystem.sb.playerAttackDamage.PlayDefault();
         PlaySound(EnemySounds.GetHit);
-
+        blood.Play();
         anim.SetTrigger("Hit");
         anim.SetInteger("HitInt", Random.Range(0, 2));
         currentHealth -= damage;
@@ -63,7 +65,7 @@ public class Enemy : MonoBehaviour
         
         dead = true;
         //Call death animation
-        anim.SetTrigger("Dead");
+        anim.SetBool("Dead", true);
         //Disable the enemy
         PlaySound(EnemySounds.Dead);
         navAgent.isStopped = true;
