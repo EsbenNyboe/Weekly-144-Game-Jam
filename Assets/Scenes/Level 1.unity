@@ -6230,6 +6230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: 11
   Enemy: 10
+  Default: 0
 --- !u!4 &944336802743369290
 Transform:
   m_ObjectHideFlags: 0
@@ -11149,7 +11150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7092199967073036067
 MonoBehaviour:
   m_ObjectHideFlags: 0

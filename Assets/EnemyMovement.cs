@@ -31,9 +31,12 @@ public class EnemyMovement : MonoBehaviour
     public Vector3 initialDestination;
 
     bool canAttack;
+    float spawnTime;
 
     private void Start()
     {
+        spawnTime = Time.time;
+        enemySoundbank = GetComponentInChildren<EnemySoundbank>();
         TryGetComponent(out enemyScript);
         TryGetComponent(out navAgent);
         anim = enemyScript.anim;
@@ -88,7 +91,8 @@ public class EnemyMovement : MonoBehaviour
         {
             navAgent.isStopped = true;
             patrolling = false;
-
+            //if (Time.time > spawnTime + 10)
+            //    enemySoundbank.enemyInRangeShooter.PlayDefault();
         }
         else if (playerDistance <= hitThreshold)
         {
@@ -102,6 +106,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    EnemySoundbank enemySoundbank;
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
@@ -112,6 +117,8 @@ public class EnemyMovement : MonoBehaviour
             navAgent.SetDestination(Player.position);
             patrolling = false;
 
+            if (Time.time > spawnTime + 10)
+                enemySoundbank.enemyInRangeBrute.PlayDefault();
         }
         else if (playerDistance <= hitThreshold)
         {
