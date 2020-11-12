@@ -5715,11 +5715,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
-  hitThreshold: 10
+  hitThreshold: 3
   detectPlayerThreshold: 50
   meleeEnemy: 0
   eattackPoint: {fileID: 193775766930490799}
-  attackRange: 0.5
+  attackRange: 2
   attackDamage: 40
   playerLayers:
     serializedVersion: 2
@@ -5776,7 +5776,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.38
+  m_Volume: 0.063
   m_Pitch: 1
   Loop: 0
   Mute: 0
