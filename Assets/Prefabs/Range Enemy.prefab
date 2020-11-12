@@ -5720,13 +5720,12 @@ MonoBehaviour:
   meleeEnemy: 0
   eattackPoint: {fileID: 193775766930490799}
   attackRange: 2
-  attackDamage: 40
+  attackDamage: 1
+  attackDelay: 1
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
   initialDestination: {x: 0, y: 0, z: 0}
-  attackDelay: 1
-  damage: 1
 --- !u!114 &18087619905564335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5740,7 +5739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 18087619697906902}
-  shootDelay: 3
+  shootDelay: 1
   shootForce: 30
 --- !u!195 &2703068691321773317
 NavMeshAgent:

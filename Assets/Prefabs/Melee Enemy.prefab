@@ -6345,13 +6345,12 @@ MonoBehaviour:
   meleeEnemy: 1
   eattackPoint: {fileID: 8081545473429622669}
   attackRange: 2
-  attackDamage: 40
+  attackDamage: 1
+  attackDelay: 1
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
   initialDestination: {x: 0, y: 0, z: 0}
-  attackDelay: 1
-  damage: 1
 --- !u!195 &4586510017561645342
 NavMeshAgent:
   m_ObjectHideFlags: 0

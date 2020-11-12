@@ -23,14 +23,14 @@ public class EnemyMovement : MonoBehaviour
     Move movement;
     public Transform eattackPoint;
     public float attackRange = 0.5f;
-    public int attackDamage = 40;
+    public int attackDamage = 1;
+    public float attackDelay = 1;
+
     public LayerMask playerLayers;
     Animator anim;
     public Vector3 initialDestination;
 
     bool canAttack;
-    public float attackDelay = 1;
-    public int damage = 1;
 
     private void Start()
     {
@@ -59,7 +59,6 @@ public class EnemyMovement : MonoBehaviour
     public void WalkTo()
     {
         navAgent.destination = initialDestination;
-        anim.SetFloat("Speed", navAgent.velocity.magnitude);
 
         if (navAgent.remainingDistance < 1)
         {
@@ -108,7 +107,6 @@ public class EnemyMovement : MonoBehaviour
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
-        anim.SetFloat("Speed", navAgent.velocity.magnitude); 
         if (playerDistance < detectPlayerThreshold && playerDistance > hitThreshold)
         {
             navAgent.isStopped = false;
@@ -143,8 +141,7 @@ public class EnemyMovement : MonoBehaviour
         if (hitPlayer.Length > 0)
         {
             enemyScript.PlaySound(EnemySounds.Attack);
-
-            playerHP.TakeDamage(damage);
+            playerHP.TakeDamage(attackDamage);
         }
 
         anim.SetTrigger("Attack");
@@ -164,6 +161,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        anim.SetFloat("Speed", navAgent.velocity.magnitude);
+
         if (!enemyScript.stunned && !enemyScript.dead)
             movement?.Invoke(); 
     }
