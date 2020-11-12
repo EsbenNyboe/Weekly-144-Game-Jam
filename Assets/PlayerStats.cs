@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
     {
         health -= damage;
         healthBarFill.fillAmount = health / startHealth;
-        Soundbank.instance.playerDamaged.PlayDefault();
+        //Soundbank.instance.playerDamaged.PlayDefault();
 
         if (health <= 0)
         {

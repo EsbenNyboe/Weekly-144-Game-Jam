@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent navAgent;
     Enemy enemyScript;
     Transform Player;
-    PlayerStats playerHP;
+    //PlayerStats playerHP;
 
     public float hitThreshold = 1;
     public float detectPlayerThreshold = 30;
@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     Move movement;
     public Transform eattackPoint;
     public float attackRange = 0.5f;
-    public int attackDamage = 1;
+    public static int attackDamage = 1;
     public float attackDelay = 1;
 
     public LayerMask playerLayers;
@@ -34,11 +34,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        
+
         TryGetComponent(out enemyScript);
         TryGetComponent(out navAgent);
         anim = enemyScript.anim;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerHP = FindObjectOfType<PlayerStats>();
+        //playerHP = FindObjectOfType<PlayerStats>();
 
         navAgent.destination = Player.position;
         canAttack = true;
@@ -144,7 +146,7 @@ public class EnemyMovement : MonoBehaviour
         {
 
             enemyScript.PlaySound(EnemySounds.Attack);
-            playerHP.TakeDamage(attackDamage);
+            //playerHP.TakeDamage(attackDamage);
         }
 
         anim.SetTrigger("Attack");

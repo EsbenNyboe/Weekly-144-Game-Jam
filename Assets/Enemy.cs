@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
         switch (sound)
         {
             case EnemySounds.Attack:
-                enemySoundbank.enemyAttack.PlayDefault();
+                //enemySoundbank.enemyAttack.PlayDefault();
                 break;
             case EnemySounds.GetHit:
                 enemySoundbank.enemyDamaged.PlayDefault();
