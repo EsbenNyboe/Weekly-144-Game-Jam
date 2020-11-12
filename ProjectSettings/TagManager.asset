@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ball
+  - TextCanvas
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemy Ball
   - Player Ball
   - Ground
-  - 
+  - Default Ball
   - 
   - 
   - 

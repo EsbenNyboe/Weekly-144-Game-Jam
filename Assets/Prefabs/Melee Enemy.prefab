@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300860817}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.16, y: 1.26, z: -0.9}
-  m_LocalScale: {x: 0.65718, y: 0.65718, z: 0.65718}
+  m_LocalPosition: {x: -0.026, y: 1.26, z: -0.374}
+  m_LocalScale: {x: 0.472703, y: 0.472703, z: 0.472703}
   m_Children: []
   m_Father: {fileID: 4586510017561645313}
   m_RootOrder: 2
@@ -6356,11 +6356,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
-  hitThreshold: 3
+  hitThreshold: 4
   detectPlayerThreshold: 50
   meleeEnemy: 1
   eattackPoint: {fileID: 8081545473429622669}
-  attackRange: 2
+  attackRange: 3
   attackDamage: 1
   attackDelay: 1
   playerLayers:

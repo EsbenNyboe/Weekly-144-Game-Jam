@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593896855}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.202, y: 1.26, z: -0.88}
-  m_LocalScale: {x: 0.65718, y: 0.65718, z: 0.65718}
+  m_LocalPosition: {x: -0.026, y: 1.26, z: -0.374}
+  m_LocalScale: {x: 0.472703, y: 0.472703, z: 0.472703}
   m_Children: []
   m_Father: {fileID: 2703068691321773338}
   m_RootOrder: 1
@@ -5780,11 +5780,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 20
-  hitThreshold: 3
+  hitThreshold: 4
   detectPlayerThreshold: 50
   meleeEnemy: 0
   eattackPoint: {fileID: 193775766930490799}
-  attackRange: 2
+  attackRange: 3
   attackDamage: 1
   attackDelay: 1
   playerLayers:
@@ -5805,7 +5805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 18087619697906902}
   shootDelay: 1
-  shootForce: 30
+  shootForce: 35
 --- !u!195 &2703068691321773317
 NavMeshAgent:
   m_ObjectHideFlags: 0
