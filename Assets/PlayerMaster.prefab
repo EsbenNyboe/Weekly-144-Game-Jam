@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1310462009}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,10 +288,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.827116
-  m_Height: 4.0368757
+  m_Radius: 0.74505424
+  m_Height: 3.7046762
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0184379, z: 0}
+  m_Center: {x: -0.08206177, y: 0.8523381, z: 0}
 --- !u!54 &7142451371777589969
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 7142451371933770858}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,6 +596,11 @@ PrefabInstance:
       propertyPath: racketAnimator
       value: 
       objectReference: {fileID: 8777664394805980315}
+    - target: {fileID: 444473634106976969, guid: ed161d9b61ca3534eb63fa2c2d93a553,
+        type: 3}
+      propertyPath: rechargeTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 444473634106976970, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}
       propertyPath: m_Enabled
@@ -669,7 +674,7 @@ PrefabInstance:
     - target: {fileID: 444473634106976972, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 444473634106976973, guid: ed161d9b61ca3534eb63fa2c2d93a553,
         type: 3}
