@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && gameObject.layer==LayersManager.PlayerBall)
         {
             collision.gameObject.GetComponent<Enemy>().Stun();
             DestroyBall();
