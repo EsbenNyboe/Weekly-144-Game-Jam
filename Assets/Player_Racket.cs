@@ -6,7 +6,7 @@ public class Player_Racket : MonoBehaviour
 {
     public float swingDuration = 1;
     Collider col;
-    Transform player;
+    public Transform player;
     public float swingForce = 10;
     public Transform ballSpawnPoint;
     BallMaker_Player ballPool;
