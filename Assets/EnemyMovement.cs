@@ -47,13 +47,11 @@ public class EnemyMovement : MonoBehaviour
             movement = WalkTo;
         else
         {
-            if (navAgent.remainingDistance < 1)
-            {
-                if (meleeEnemy)
-                    movement = MeleeMovement;
-                else
-                    movement = RangeMovement;
-            }
+            if (meleeEnemy)
+                movement = MeleeMovement;
+            else
+                movement = RangeMovement;
+
         }
     }
     public void WalkTo()
@@ -103,14 +101,14 @@ public class EnemyMovement : MonoBehaviour
 
 
     }
-    
+
     void MeleeMovement()
     {
         float playerDistance = Vector3.Distance(transform.position, Player.position);
         if (playerDistance < detectPlayerThreshold && playerDistance > hitThreshold)
         {
             navAgent.isStopped = false;
-            
+
             navAgent.SetDestination(Player.position);
             patrolling = false;
 
@@ -120,15 +118,17 @@ public class EnemyMovement : MonoBehaviour
             navAgent.isStopped = true;
             patrolling = false;
 
+
+
             StartCoroutine(Attack());
-            
+
         }
         else
         {
             Patrol();
         }
     }
-    
+
     IEnumerator Attack()
     {
         if (!canAttack)
@@ -161,13 +161,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (UserInterfaceManager.frozen)
+        if (UserInterfaceManager.frozen || enemyScript.dead)
+        {
+            navAgent.isStopped = true;
             return;
+        }
 
         anim.SetFloat("Speed", navAgent.velocity.magnitude);
 
         if (!enemyScript.stunned && !enemyScript.dead)
-            movement?.Invoke(); 
+            movement?.Invoke();
     }
 
 
@@ -188,7 +191,7 @@ public class EnemyMovement : MonoBehaviour
 
             navAgent.SetDestination(newPatrolPoint());
         }
-            navAgent.isStopped = false;
+        navAgent.isStopped = false;
 
         if (navAgent.remainingDistance < 2)
         {
