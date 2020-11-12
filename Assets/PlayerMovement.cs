@@ -50,19 +50,19 @@ public class PlayerMovement : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;        
     public LayerMask enemyLayers;
-    public Animator anim;
 
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        playerScale = transform.localScale;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Start()
     {
-        playerScale = transform.localScale;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+      
     }
 
 
@@ -78,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         //Play attack anim
-        anim.SetTrigger("Swing");
         //Detect enemies in range of attack
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
         
@@ -100,6 +99,10 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        if (UserInterfaceManager.frozen)
+            return;
+
+
         MyInput();
         Look();
         if (Input.GetButtonDown("Fire1"))

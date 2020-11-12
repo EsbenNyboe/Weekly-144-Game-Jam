@@ -116,10 +116,17 @@ public class UserInterfaceManager : MonoBehaviour
     {
         //HEEEELP: how to switch between static and moving camera
         frozen = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     void MovingCamera()
     {
         //HELPP
         frozen = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 }
