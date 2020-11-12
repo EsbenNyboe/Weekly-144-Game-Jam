@@ -16,6 +16,7 @@ public class EnemyShooter : MonoBehaviour
 
     private void Start()
     {
+        enemySoundbank = GetComponentInChildren<EnemySoundbank>();
         enemyScript = GetComponent<Enemy>();        
     }
 
@@ -39,8 +40,11 @@ public class EnemyShooter : MonoBehaviour
         }
     }
 
+    EnemySoundbank enemySoundbank;
     void Shoot()
     {
+        enemySoundbank.enemyShoot.PlayDefault();
+
         Vector3 dir = (enemyScript.Player.position+(transform.up*2)) - shootPosition.position;
         Ball newBall = BallMaker.Instance.GetObject();
         newBall.gameObject.layer = LayersManager.EnemyBall;
