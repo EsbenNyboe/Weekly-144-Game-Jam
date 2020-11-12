@@ -36,18 +36,21 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && gameObject.layer==LayersManager.PlayerBall)
+        if (enabled)
         {
-            collision.gameObject.GetComponent<Enemy>().Stun();
-            DestroyBall();
-        }
+            if (collision.gameObject.CompareTag("Enemy") && gameObject.layer == LayersManager.PlayerBall)
+            {
+                collision.gameObject.GetComponent<Enemy>().Stun();
+                DestroyBall();
+            }
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerInteractions>().Stun();
-            DestroyBall();
-        }
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<PlayerInteractions>().Stun();
+                DestroyBall();
+            }
 
-        ballColl.PlayDefault();
+            ballColl.PlayDefault();
+        }
     }
 }
