@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+
         PlaySound(EnemySounds.GetHit);
 
         anim.SetTrigger("Hit");
@@ -56,13 +57,15 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+
         Debug.Log("Enemy Down!");
         dead = true;
         //Call death animation
         anim.SetTrigger("Dead");
         //Disable the enemy
         PlaySound(EnemySounds.Dead);
-
+        navAgent.isStopped = true;
+        GetComponent<Collider>().enabled = false;
 
     }
 
