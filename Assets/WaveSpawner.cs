@@ -25,10 +25,15 @@ public class WaveSpawner : MonoBehaviour
     int enemiesAlive;
     private void Start()
     {
-        SpawnWave();
+        //StartLevel();
     }
     public GameManager gameManager;
 
+    public void StartLevel()
+    {
+        waveIndex = 0;
+        SpawnWave();
+    }
     public void SpawnWave()
     {
         if (waveIndex < wave.Length)

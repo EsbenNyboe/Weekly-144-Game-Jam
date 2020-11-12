@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
     public void LevelStart() 
     {
-        waveSpawner.SpawnWave();
+        waveSpawner.StartLevel();
     }
     public static void Pause(bool pause)
     {

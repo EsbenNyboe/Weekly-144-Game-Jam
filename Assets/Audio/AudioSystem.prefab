@@ -704,7 +704,7 @@ MonoBehaviour:
   - {fileID: 2915486347526845829}
   - {fileID: 3372894177782833153}
   singleFile: {fileID: 0}
-  volumeStart: 0.109
+  volumeStart: 0.25
   pitchStart: 1
   pitchRandomWidth: 0
   multiFile:
@@ -758,9 +758,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 82d43b0acefa4e6459998d1450faa3af,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4b858a5f68127174a9c82ce13c14ab0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a7b026935759f5343b99432c93b7c3a0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.109
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1267,9 +1267,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 82d43b0acefa4e6459998d1450faa3af,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9247358ced8502a4891fa5cd4cc97003, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e9f394a8027a2f34ea2b8e67566df98b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.061
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2329,7 +2329,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c478dba38006a6f429f0004bebf6df78, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 0.9191998
+  m_Pitch: 0.8029515
   Loop: 0
   Mute: 0
   Spatialize: 0

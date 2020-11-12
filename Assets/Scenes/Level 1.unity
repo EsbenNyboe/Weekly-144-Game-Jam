@@ -858,7 +858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19072
+  m_Name: pb_Mesh17896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1249,6 +1249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4586510017561645316, guid: 754425556b440c04da5d51b945e33369,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754425556b440c04da5d51b945e33369, type: 3}
 --- !u!1 &1311373057
@@ -1377,16 +1382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Game Handler '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089680666498040632, guid: 0084dc5a8daca6043b90c6c2ecaf4ea4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089680666498040637, guid: 0084dc5a8daca6043b90c6c2ecaf4ea4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7180927909766785408, guid: 0084dc5a8daca6043b90c6c2ecaf4ea4,
         type: 3}
@@ -4357,6 +4352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Range Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703068691321773343, guid: 674393c7ab3f0724bbf04f9853165c58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674393c7ab3f0724bbf04f9853165c58, type: 3}
