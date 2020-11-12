@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (enabled)
+        if (gameObject.activeInHierarchy)
         {
             if (collision.gameObject.CompareTag("Enemy") && gameObject.layer == LayersManager.PlayerBall)
             {
